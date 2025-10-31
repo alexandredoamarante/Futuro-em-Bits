@@ -1,3 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Doar - Futuro em Bits</title>
+  <style>
+    /* --- CSS padrão do site --- */
+    :root {
+      --bg: #ffffff;
+      --fg: #222;
+      --accent: #2b6cb0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+    body { color: var(--fg); background: var(--bg); line-height: 1.4; }
+    .container { max-width: 1024px; margin:0 auto; padding:1rem; }
+    .site-header { background:#f5f5f5; padding:0.75rem 0; border-bottom:1px solid #e3e3e3; text-align:center; }
+    #site-title { font-size:2rem; margin:0; }
+    .nav { list-style:none; display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
+    .nav a { display:inline-block; padding:0.3rem 0.6rem; text-decoration:none; color:var(--fg); }
+    h1,h2 { margin-bottom:0.5rem; }
+    p { margin-bottom:1rem; }
+    ul { margin-left:1.2rem; margin-bottom:1rem; }
+    section { margin-top:2rem; }
+    fieldset { border:1px solid #ddd; padding:1rem; margin-bottom:1rem; }
+    label { display:block; margin-top:0.5rem; }
+    input, select, textarea { width:100%; padding:0.5rem; margin-top:0.2rem; border:1px solid #ccc; border-radius:4px; }
+    button { display:inline-block; padding:0.5rem 0.9rem; border-radius:6px; text-decoration:none; text-align:center; background:var(--accent); color:white; border:none; cursor:pointer; transition:background 0.3s; }
+    button:hover { background:#245a8a; }
+    footer.site-footer { margin-top:2rem; padding:1rem 0; border-top:1px solid #eee; background:#fafafa; text-align:center; }
+    .progress-bar { height:25px; border-radius:4px; color:#fff; text-align:center; line-height:25px; }
+  </style>
+</head>
+<body>
+
 <header class="site-header" role="banner">
   <div class="container">
     <h1 id="site-title">Futuro em Bits</h1>
@@ -23,7 +61,7 @@
   <section>
     <h2>Campanha atual</h2>
     <p><strong>Meta:</strong> R$ 10.000 — <strong>Progresso:</strong> R$ 4.200</p>
-    <div role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width:42%; background:#4CAF50; color:#fff; text-align:center; padding:5px 0;">42%</div>
+    <div class="progress-bar" style="width:42%; background:#4CAF50;">42%</div>
   </section>
 
   <section>
@@ -78,4 +116,11 @@
     <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
   </div>
 </footer>
-<script src="../assets/js/main.js"></script>
+
+<script>
+  // Atualiza ano do footer automaticamente
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

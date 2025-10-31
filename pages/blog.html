@@ -1,3 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Futuro em Bits</title>
+  <style>
+    /* --- CSS padrão do site --- */
+    :root {
+      --bg: #ffffff;
+      --fg: #222;
+      --accent: #2b6cb0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+    body { color: var(--fg); background: var(--bg); line-height: 1.4; }
+    .container { max-width: 1024px; margin:0 auto; padding:1rem; }
+    .site-header { background:#f5f5f5; padding:0.75rem 0; border-bottom:1px solid #e3e3e3; text-align:center; }
+    #site-title { font-size:2rem; margin:0; }
+    .nav { list-style:none; display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
+    .nav a { display:inline-block; padding:0.3rem 0.6rem; text-decoration:none; color:var(--fg); }
+
+    main h1 { margin-bottom:1rem; }
+    article { border-bottom:1px solid #ddd; padding:1rem 0; }
+    article h2 { font-size:1.3rem; margin-bottom:0.5rem; }
+    article p { margin-bottom:0.5rem; }
+    article a { color: var(--accent); text-decoration: none; }
+    article a:hover { text-decoration: underline; }
+
+    footer.site-footer { margin-top:2rem; padding:1rem 0; border-top:1px solid #eee; background:#fafafa; text-align:center; }
+    button { display:inline-block; padding:0.5rem 0.9rem; border-radius:6px; text-decoration:none; text-align:center; background:var(--accent); color:white; border:none; cursor:pointer; transition:background 0.3s; }
+    button:hover { background:#245a8a; }
+  </style>
+</head>
+<body>
+
 <header class="site-header" role="banner">
   <div class="container">
     <h1 id="site-title">Futuro em Bits</h1>
@@ -22,17 +60,33 @@
   <article>
     <h2>Título da notícia 1</h2>
     <p>Resumo da publicação e link para ler mais.</p>
+    <a href="#">Leia mais</a>
   </article>
 
   <article>
     <h2>Título da notícia 2</h2>
     <p>Resumo da publicação e link para ler mais.</p>
+    <a href="#">Leia mais</a>
+  </article>
+
+  <article>
+    <h2>Título da notícia 3</h2>
+    <p>Resumo da publicação e link para ler mais.</p>
+    <a href="#">Leia mais</a>
   </article>
 
 </main>
+
 <footer role="contentinfo" class="site-footer">
   <div class="container">
     <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
   </div>
 </footer>
-<script src="../assets/js/main.js"></script>
+
+<script>
+  // Atualiza ano do footer automaticamente
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

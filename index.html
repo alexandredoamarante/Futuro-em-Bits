@@ -5,53 +5,289 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Futuro em Bits — inclusão digital e educação tecnológica para jovens.">
   <title>Futuro em Bits</title>
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+  /* ============================
+     CSS Principal - Design limpo
+     ============================ */
+  :root{
+    --bg:#ffffff;
+    --card:#ffffff;
+    --fg:#222;
+    --muted:#6b7280;
+    --accent:#2563eb;
+    --radius:10px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --container: 1100px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    color:var(--fg);
+    background:var(--bg);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+  .container{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:1.25rem;
+  }
+
+  /* Skip link acessível */
+  .skip-link{
+    position:absolute;
+    left: -999px;
+    top: auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+  .skip-link:focus{
+    left:0;
+    top:0.5rem;
+    width:auto;
+    height:auto;
+    padding:.5rem .75rem;
+    background:#111;
+    color:#fff;
+    z-index:9999;
+    border-radius:6px;
+  }
+
+  /* Header */
+  .site-header{
+    background:#f8fafc;
+    border-bottom:1px solid #e6edf8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:1.25rem 0;
+  }
+  .site-header .inner{
+    width:100%;
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 1rem;
+    text-align:center;
+  }
+  #site-title{
+    font-size:2.25rem;
+    margin:0;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--fg);
+  }
+  .tagline{
+    margin-top:.25rem;
+    color:var(--muted);
+    font-size:.95rem;
+  }
+
+  nav[aria-label="Menu principal"]{
+    margin-top:.75rem;
+  }
+  .nav{
+    display:flex;
+    justify-content:center;
+    gap:.5rem;
+    flex-wrap:wrap;
+    list-style:none;
+    padding:0;
+    margin: .65rem 0 0 0;
+  }
+  .nav a{
+    display:inline-block;
+    padding:.45rem .8rem;
+    border-radius:8px;
+    color:var(--fg);
+    text-decoration:none;
+    font-weight:500;
+    transition:all .15s;
+  }
+  .nav a:hover{ background:rgba(37,99,235,0.08); color:var(--accent);}
+
+  /* Hero */
+  .hero{
+    text-align:center;
+    padding:1.25rem 0 1.75rem;
+  }
+  .hero h2{ font-size:1.5rem; margin:0 0 .5rem; }
+  .hero p{ color:var(--muted); margin:0 0 1rem }
+
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:.6rem 1rem;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+  }
+  .btn-secondary{
+    display:inline-block;
+    padding:.55rem .95rem;
+    border-radius:8px;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    background:transparent;
+    text-decoration:none;
+    margin-left:.65rem;
+  }
+
+  /* Cards rápidos */
+  .grid{
+    display:grid;
+    gap:1rem;
+    grid-template-columns:1fr;
+    margin-top:1rem;
+  }
+  @media(min-width:720px){ .grid{ grid-template-columns:repeat(3,1fr); } }
+
+  .card{
+    background:var(--card);
+    border-radius:12px;
+    padding:1rem;
+    box-shadow:0 6px 18px rgba(16,24,40,0.04);
+    border:1px solid rgba(10,10,10,0.03);
+  }
+  .card h4{ margin:0 0 .5rem; font-size:1.05rem }
+  .card p{ margin:0 0 .75rem; color:var(--muted) }
+
+  /* Media (vídeo) */
+  .media { margin:1.25rem 0; text-align:center; }
+  video{
+    width:100%;
+    max-width:900px;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(2,6,23,0.06);
+    border:1px solid rgba(0,0,0,0.04);
+  }
+
+  /* Galeria */
+  .gallery-preview{ margin:1.5rem 0 2rem; }
+  .gallery-preview h3{ margin:0 0 .75rem; }
+  .gallery-grid{
+    display:grid;
+    gap:.5rem;
+    grid-template-columns:repeat(2,1fr);
+  }
+  @media(min-width:520px){ .gallery-grid{ grid-template-columns:repeat(3,1fr);} }
+  @media(min-width:760px){ .gallery-grid{ grid-template-columns:repeat(4,1fr);} }
+  @media(min-width:1100px){ .gallery-grid{ grid-template-columns:repeat(5,1fr);} }
+
+  .gallery-grid a{
+    display:block;
+    overflow:hidden;
+    border-radius:8px;
+    background:linear-gradient(180deg, #f8fafc, #fff);
+    border:1px solid rgba(10,10,10,0.03);
+  }
+  .gallery-grid img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+    transition:transform .25s ease;
+  }
+  .gallery-grid a:hover img{ transform:scale(1.05); }
+
+  /* Lightbox simples */
+  .lightbox{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.7);
+    z-index:9999;
+    padding:1.2rem;
+  }
+  .lightbox.active{ display:flex; }
+  .lightbox img{
+    max-width:95%;
+    max-height:85%;
+    border-radius:10px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
+  }
+  .lightbox .close{
+    position:absolute;
+    top:1rem;
+    right:1.2rem;
+    background:rgba(255,255,255,0.9);
+    border-radius:999px;
+    width:38px;height:38px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-weight:700;color:#111;
+  }
+
+  /* Footer */
+  footer.site-footer{
+    text-align:center;
+    padding:1.25rem 0;
+    border-top:1px solid #edf2fb;
+    color:var(--muted);
+  }
+
+  /* Micro layout niceties */
+  .muted{ color:var(--muted); font-size:0.95rem }
+  </style>
 </head>
 <body>
 
-  <a href="#main">Pular para o conteúdo</a>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-  <header role="banner">
-    <h1>Futuro em Bits</h1>
-    <div>Inclusão digital e educação tecnológica para jovens</div>
-    <nav aria-label="Menu principal">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="pages/sobre.html">Sobre</a></li>
-        <li><a href="pages/projetos.html">Projetos</a></li>
-        <li><a href="pages/voluntariado.html">Voluntariado</a></li>
-        <li><a href="pages/doacoes.html">Como doar</a></li>
-        <li><a href="pages/transparencia.html">Transparência</a></li>
-        <li><a href="pages/blog.html">Blog</a></li>
-        <li><a href="pages/contato.html">Contato</a></li>
-      </ul>
-    </nav>
+  <header class="site-header" role="banner">
+    <div class="inner">
+      <h1 id="site-title">Futuro em Bits</h1>
+      <div class="tagline muted">Inclusão digital e educação tecnológica para jovens</div>
+
+      <nav aria-label="Menu principal" style="margin-top:10px;">
+        <ul class="nav" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html">Início</a></li>
+          <li role="none"><a role="menuitem" href="pages/sobre.html">Sobre</a></li>
+          <li role="none"><a role="menuitem" href="pages/projetos.html">Projetos</a></li>
+          <li role="none"><a role="menuitem" href="pages/voluntariado.html">Voluntariado</a></li>
+          <li role="none"><a role="menuitem" href="pages/doacoes.html">Como doar</a></li>
+          <li role="none"><a role="menuitem" href="pages/transparencia.html">Transparência</a></li>
+          <li role="none"><a role="menuitem" href="pages/blog.html">Blog</a></li>
+          <li role="none"><a role="menuitem" href="pages/contato.html">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main id="main" role="main">
-
-    <!-- Hero -->
-    <section>
-      <h2>Transformando vidas com pequenas ações</h2>
-      <p>Conheça nossos projetos, participe como voluntário e ajude a manter nosso trabalho.</p>
-      <a href="pages/doacoes.html">Quero ajudar</a>
-      <a href="pages/voluntariado.html">Seja voluntário</a>
+  <main id="main" class="container" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h2 id="hero-title">Transformando vidas com pequenas ações</h2>
+      <p class="muted">Conheça nossos projetos, participe como voluntário e ajude a manter nosso trabalho.</p>
+      <a class="btn" href="pages/doacoes.html">Quero ajudar</a>
+      <a class="btn-secondary" href="pages/voluntariado.html">Seja voluntário</a>
     </section>
 
     <!-- Missão / Visão / Valores -->
-    <section>
-      <h3>Missão, visão e valores</h3>
-      <div>
-        <div>
+    <section id="missao-visao-valores" class="container" aria-labelledby="mv-title" style="margin-top:1.25rem;">
+      <h3 id="mv-title">Missão, visão e valores</h3>
+      <div style="display:grid;gap:1rem; grid-template-columns:1fr;">
+        <div class="card" style="padding:1rem 1rem;">
           <h4>Missão</h4>
-          <p>Promover inclusão digital e educação tecnológica para jovens de periferia, ensinando programação, robótica e empreendedorismo.</p>
+          <p class="muted">Promover inclusão digital e educação tecnológica para jovens de periferia, ensinando programação, robótica e empreendedorismo.</p>
         </div>
-        <div>
+        <div class="card" style="padding:1rem 1rem;">
           <h4>Visão</h4>
-          <p>Ser referência nacional em formação tecnológica para jovens, criando oportunidades de futuro por meio da inovação.</p>
+          <p class="muted">Ser referência nacional em formação tecnológica para jovens, criando oportunidades de futuro por meio da inovação.</p>
         </div>
-        <div>
+        <div class="card" style="padding:1rem 1rem;">
           <h4>Valores</h4>
-          <ul>
+          <ul class="muted">
             <li>Inovação e criatividade</li>
             <li>Empoderamento jovem</li>
             <li>Educação acessível</li>
@@ -62,68 +298,116 @@
     </section>
 
     <!-- Seções rápidas -->
-    <section>
-      <h3>Seções rápidas</h3>
-      <div>
-        <article>
-          <h4>Projetos em andamento</h4>
-          <p>Veja atividades e indicadores.</p>
-          <a href="pages/projetos.html">Ver projetos</a>
+    <section class="highlights container" aria-labelledby="cards" style="margin-top:1.5rem;">
+      <h3 id="cards">Seções rápidas</h3>
+      <div class="grid">
+        <article class="card" aria-labelledby="p1">
+          <h4 id="p1">Projetos em andamento</h4>
+          <p class="muted">Veja atividades e indicadores.</p>
+          <a class="btn-secondary" href="pages/projetos.html">Ver projetos</a>
         </article>
-        <article>
-          <h4>Voluntariado</h4>
-          <p>Inscreva-se nas oportunidades.</p>
-          <a href="pages/voluntariado.html">Inscrever-se</a>
+        <article class="card" aria-labelledby="p2">
+          <h4 id="p2">Voluntariado</h4>
+          <p class="muted">Inscreva-se nas oportunidades.</p>
+          <a class="btn-secondary" href="pages/voluntariado.html">Inscrever-se</a>
         </article>
-        <article>
-          <h4>Transparência</h4>
-          <p>Relatórios e aplicação de recursos.</p>
-          <a href="pages/transparencia.html">Ver relatórios</a>
+        <article class="card" aria-labelledby="p3">
+          <h4 id="p3">Transparência</h4>
+          <p class="muted">Relatórios e aplicação de recursos.</p>
+          <a class="btn-secondary" href="pages/transparencia.html">Ver relatórios</a>
         </article>
       </div>
     </section>
 
     <!-- Vídeo institucional -->
-    <section>
-      <h3>Vídeo institucional</h3>
+    <section class="media" aria-labelledby="media">
+      <h3 id="media">Vídeo institucional</h3>
+      <!-- preload="metadata" para não forçar download completo; poster deve existir -->
       <video controls preload="metadata" poster="assets/images/logos/poster.svg" playsinline>
         <source src="assets/video/institucional1.mp4" type="video/mp4">
         Seu navegador não suporta vídeo.
       </video>
+      <p class="muted" style="margin-top:.5rem;"></p>
     </section>
 
     <!-- Galeria com 20 imagens -->
-    <section>
-      <h3>Galeria</h3>
-      <div>
-        <a href="assets/images/gallery/Imagem 1.jpg"><img src="assets/images/gallery/Imagem 1.jpg" alt="Atividade 1 — oficina de programação"></a>
-        <a href="assets/images/gallery/Imagem 2.jpg"><img src="assets/images/gallery/Imagem 2.jpg" alt="Atividade 2 — robótica"></a>
-        <a href="assets/images/gallery/Imagem 3.jpg"><img src="assets/images/gallery/Imagem 3.jpg" alt="Atividade 3 — aula prática"></a>
-        <a href="assets/images/gallery/Imagem 4.jpg"><img src="assets/images/gallery/Imagem 4.jpg" alt="Atividade 4 — mentoria"></a>
-        <a href="assets/images/gallery/Imagem 5.jpg"><img src="assets/images/gallery/Imagem 5.jpg" alt="Atividade 5 — palestra"></a>
-        <a href="assets/images/gallery/Imagem 6.jpg"><img src="assets/images/gallery/Imagem 6.jpg" alt="Atividade 6 — encontro"></a>
-        <a href="assets/images/gallery/Imagem 7.jpg"><img src="assets/images/gallery/Imagem 7.jpg" alt="Atividade 7 — evento"></a>
-        <a href="assets/images/gallery/Imagem 8.jpg"><img src="assets/images/gallery/Imagem 8.jpg" alt="Atividade 8 — oficina prática"></a>
-        <a href="assets/images/gallery/Imagem 9.jpg"><img src="assets/images/gallery/Imagem 9.jpg" alt="Atividade 9 — turma"></a>
-        <a href="assets/images/gallery/Imagem 10.jpg"><img src="assets/images/gallery/Imagem 10.jpg" alt="Atividade 10 — apresentação"></a>
-        <a href="assets/images/gallery/Imagem 11.jpg"><img src="assets/images/gallery/Imagem 11.jpg" alt="Atividade 11 — laboratório"></a>
-        <a href="assets/images/gallery/Imagem 12.jpg"><img src="assets/images/gallery/Imagem 12.jpg" alt="Atividade 12 — feira"></a>
-        <a href="assets/images/gallery/Imagem 13.jpg"><img src="assets/images/gallery/Imagem 13.jpg" alt="Atividade 13 — mentor"></a>
-        <a href="assets/images/gallery/Imagem 14.jpg"><img src="assets/images/gallery/Imagem 14.jpg" alt="Atividade 14 — hands-on"></a>
-        <a href="assets/images/gallery/Imagem 15.jpg"><img src="assets/images/gallery/Imagem 15.jpg" alt="Atividade 15 — networking"></a>
-        <a href="assets/images/gallery/Imagem 16.jpg"><img src="assets/images/gallery/Imagem 16.jpg" alt="Atividade 16 — workshop"></a>
-        <a href="assets/images/gallery/Imagem 17.jpg"><img src="assets/images/gallery/Imagem 17.jpg" alt="Atividade 17 — coding"></a>
-        <a href="assets/images/gallery/Imagem 18.jpg"><img src="assets/images/gallery/Imagem 18.jpg" alt="Atividade 18 — equipe"></a>
-        <a href="assets/images/gallery/Imagem 19.jpg"><img src="assets/images/gallery/Imagem 19.jpg" alt="Atividade 19 — entrega de certificados"></a>
-        <a href="assets/images/gallery/Imagem 20.jpg"><img src="assets/images/gallery/Imagem 20.jpg" alt="Atividade 20 — celebração"></a>
+    <section class="gallery-preview" aria-labelledby="gallery">
+      <h3 id="gallery">Galeria</h3>
+      <div class="gallery-grid" role="list">
+        <!-- COPIE exatamente os nomes dos arquivos para a pasta assets/images/gallery/ -->
+        <a role="listitem" href="assets/images/gallery/Imagem 1.jpg"><img src="assets/images/gallery/Imagem 1.jpg" alt="Atividade 1 — oficina de programação" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 2.jpg"><img src="assets/images/gallery/Imagem 2.jpg" alt="Atividade 2 — robótica" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 3.jpg"><img src="assets/images/gallery/Imagem 3.jpg" alt="Atividade 3 — aula prática" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 4.jpg"><img src="assets/images/gallery/Imagem 4.jpg" alt="Atividade 4 — mentoria" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 5.jpg"><img src="assets/images/gallery/Imagem 5.jpg" alt="Atividade 5 — palestra" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 6.jpg"><img src="assets/images/gallery/Imagem 6.jpg" alt="Atividade 6 — encontro" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 7.jpg"><img src="assets/images/gallery/Imagem 7.jpg" alt="Atividade 7 — evento" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 8.jpg"><img src="assets/images/gallery/Imagem 8.jpg" alt="Atividade 8 — oficina prática" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 9.jpg"><img src="assets/images/gallery/Imagem 9.jpg" alt="Atividade 9 — turma" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 10.jpg"><img src="assets/images/gallery/Imagem 10.jpg" alt="Atividade 10 — apresentação" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 11.jpg"><img src="assets/images/gallery/Imagem 11.jpg" alt="Atividade 11 — laboratório" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 12.jpg"><img src="assets/images/gallery/Imagem 12.jpg" alt="Atividade 12 — feira" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 13.jpg"><img src="assets/images/gallery/Imagem 13.jpg" alt="Atividade 13 — mentor" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 14.jpg"><img src="assets/images/gallery/Imagem 14.jpg" alt="Atividade 14 — hands-on" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 15.jpg"><img src="assets/images/gallery/Imagem 15.jpg" alt="Atividade 15 — networking" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 16.jpg"><img src="assets/images/gallery/Imagem 16.jpg" alt="Atividade 16 — workshop" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 17.jpg"><img src="assets/images/gallery/Imagem 17.jpg" alt="Atividade 17 — coding" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 18.jpg"><img src="assets/images/gallery/Imagem 18.jpg" alt="Atividade 18 — equipe" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 19.jpg"><img src="assets/images/gallery/Imagem 19.jpg" alt="Atividade 19 — entrega de certificados" loading="lazy"></a>
+        <a role="listitem" href="assets/images/gallery/Imagem 20.jpg"><img src="assets/images/gallery/Imagem 20.jpg" alt="Atividade 20 — celebração" loading="lazy"></a>
       </div>
     </section>
 
   </main>
 
-  <footer role="contentinfo">
-    <p>&copy; 2025 Futuro em Bits — Todos os direitos reservados.</p>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Visualização da imagem">
+    <div class="close" id="lb-close" title="Fechar">✕</div>
+    <img src="" alt="">
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+  <script>
+  // ano automático
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Lightbox simples: abre a imagem clicada (usa href do <a>)
+  (function(){
+    const grid = document.querySelector('.gallery-grid');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = lightbox.querySelector('img');
+    const lbClose = document.getElementById('lb-close');
+
+    grid?.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if(!a) return;
+      e.preventDefault();
+      const href = a.getAttribute('href');
+      lbImg.src = href;
+      lbImg.alt = a.querySelector('img')?.alt || 'Imagem da galeria';
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden','false');
+      // foco no close
+      lbClose.focus();
+    });
+
+    function closeLB(){
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+    }
+
+    lbClose.addEventListener('click', closeLB);
+    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLB(); });
+
+    // fechar com ESC
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLB(); });
+  })();
+  </script>
 
 </body>
 </html>

@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — Futuro em Bits</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
 <header class="site-header" role="banner">
   <div class="container">
     <h1 id="site-title">Futuro em Bits</h1>
@@ -18,12 +27,11 @@
 
 <main class="container">
   <h1>Contato institucional</h1>
-
   <form id="form-contato" novalidate enctype="multipart/form-data">
     <fieldset>
       <legend>Contato</legend>
       <label for="assunto">Assunto</label>
-      <select id="assunto" name="assunto">
+      <select id="assunto" name="assunto" required>
         <option value="">-- escolha --</option>
         <option value="parceria">Parceria</option>
         <option value="duvida">Dúvida</option>
@@ -37,7 +45,7 @@
       <input id="emailc" name="emailc" type="email" required>
 
       <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="6"></textarea>
+      <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
 
       <label for="anexo">Anexos (opcional)</label>
       <input id="anexo" name="anexo" type="file" accept=".pdf,.doc,.docx,.png,.jpg">
@@ -49,15 +57,17 @@
   <script>
     document.getElementById('form-contato')?.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Mensagem simulada enviada. Em um sistema real o backend receberia o formulário.');
+      alert('Mensagem simulada enviada! Em um sistema real o backend receberia o formulário.');
       e.target.reset();
     });
   </script>
-
 </main>
+
 <footer role="contentinfo" class="site-footer">
   <div class="container">
     <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
   </div>
 </footer>
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/script.js"></script>
+</body>
+</html>
