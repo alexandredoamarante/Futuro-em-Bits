@@ -1,84 +1,37 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato — Futuro em Bits</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
-</head>
-<body>
+<h2>Contato institucional</h2>
 
-<header class="site-header" role="banner">
-  <div class="container">
-    <h1 id="site-title">Futuro em Bits</h1>
-    <div class="tagline">Inclusão digital e educação tecnológica para jovens</div>
-    <nav aria-label="Menu principal">
-      <ul class="nav">
-        <li><a href="../index.html">Início</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="voluntariado.html">Voluntariado</a></li>
-        <li><a href="doacoes.html">Como doar</a></li>
-        <li><a href="transparencia.html">Transparência</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<form id="form-contato" novalidate enctype="multipart/form-data">
+  <fieldset>
 
-<main id="main" class="container" role="main">
-  <h2>Contato institucional</h2>
 
-  <form id="form-contato" novalidate enctype="multipart/form-data">
-    <fieldset>
-      <legend>Contato</legend>
+    <label for="assunto">Assunto</label>
+    <select id="assunto" name="assunto" required>
+      <option value="">-- escolha --</option>
+      <option value="parceria">Parceria</option>
+      <option value="duvida">Dúvida</option>
+      <option value="imprensa">Imprensa</option>
+    </select>
 
-      <label for="assunto">Assunto</label>
-      <select id="assunto" name="assunto" required>
-        <option value="">-- escolha --</option>
-        <option value="parceria">Parceria</option>
-        <option value="duvida">Dúvida</option>
-        <option value="imprensa">Imprensa</option>
-      </select>
+    <label for="nomec">Nome</label>
+    <input id="nomec" name="nomec" type="text" required>
 
-      <label for="nomec">Nome</label>
-      <input id="nomec" name="nomec" type="text" required>
+    <label for="emailc">E-mail</label>
+    <input id="emailc" name="emailc" type="email" required>
 
-      <label for="emailc">E-mail</label>
-      <input id="emailc" name="emailc" type="email" required>
+    <label for="mensagem">Mensagem</label>
+    <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
 
-      <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+    <label for="anexo">Anexos (opcional)</label>
+    <input id="anexo" name="anexo" type="file" accept=".pdf,.doc,.docx,.png,.jpg">
+  </fieldset>
 
-      <label for="anexo">Anexos (opcional)</label>
-      <input id="anexo" name="anexo" type="file" accept=".pdf,.doc,.docx,.png,.jpg">
-
-    </fieldset>
-
-    <button type="submit" class="btn">Enviar mensagem</button>
-  </form>
-
-  <script>
-    document.getElementById('form-contato')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Mensagem simulada enviada! Em um sistema real o backend receberia o formulário.');
-      e.target.reset();
-    });
-  </script>
-</main>
-
-<footer role="contentinfo" class="site-footer">
-  <div class="container">
-    <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
-  </div>
-</footer>
+  <button type="submit" class="btn">Enviar mensagem</button>
+</form>
 
 <script>
-  // Atualiza ano do footer automaticamente
-  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('form-contato')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Mensagem simulada enviada! Em um sistema real o backend receberia o formulário.');
+    e.target.reset();
+  });
 </script>
-<script src="../assets/js/script.js"></script>
-
-</body>
-</html>
