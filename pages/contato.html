@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+
 <header class="site-header" role="banner">
   <div class="container">
     <h1 id="site-title">Futuro em Bits</h1>
+    <div class="tagline">Inclusão digital e educação tecnológica para jovens</div>
     <nav aria-label="Menu principal">
       <ul class="nav">
         <li><a href="../index.html">Início</a></li>
@@ -25,11 +27,13 @@
   </div>
 </header>
 
-<main class="container">
-  <h1>Contato institucional</h1>
+<main id="main" class="container" role="main">
+  <h2>Contato institucional</h2>
+
   <form id="form-contato" novalidate enctype="multipart/form-data">
     <fieldset>
       <legend>Contato</legend>
+
       <label for="assunto">Assunto</label>
       <select id="assunto" name="assunto" required>
         <option value="">-- escolha --</option>
@@ -49,9 +53,10 @@
 
       <label for="anexo">Anexos (opcional)</label>
       <input id="anexo" name="anexo" type="file" accept=".pdf,.doc,.docx,.png,.jpg">
+
     </fieldset>
 
-    <button type="submit">Enviar mensagem</button>
+    <button type="submit" class="btn">Enviar mensagem</button>
   </form>
 
   <script>
@@ -68,6 +73,12 @@
     <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
   </div>
 </footer>
+
+<script>
+  // Atualiza ano do footer automaticamente
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 <script src="../assets/js/script.js"></script>
+
 </body>
 </html>

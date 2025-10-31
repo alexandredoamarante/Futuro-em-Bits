@@ -1,44 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre - Futuro em Bits</title>
-  <style>
-    /* --- Todo o CSS do site que já colocamos --- */
-    :root {
-      --bg: #ffffff;
-      --fg: #222;
-      --accent: #2b6cb0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin:0; padding:0; }
-
-    body { color: var(--fg); background: var(--bg); line-height: 1.4; }
-    .container { max-width: 1024px; margin:0 auto; padding:1rem; }
-    .site-header { background:#f5f5f5; padding:0.75rem 0; border-bottom:1px solid #e3e3e3; text-align:center; }
-    #site-title { font-size:2rem; margin:0; }
-    .nav { list-style:none; display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-top:0.5rem; }
-    .nav a { display:inline-block; padding:0.3rem 0.6rem; text-decoration:none; color:var(--fg); }
-    h1,h2 { margin-bottom:0.5rem; }
-    p { margin-bottom:1rem; }
-    section { margin-top:2rem; }
-    fieldset { border:1px solid #ddd; padding:1rem; margin-bottom:1rem; }
-    label { display:block; margin-top:0.5rem; }
-    input, select, textarea { width:100%; padding:0.5rem; margin-top:0.2rem; border:1px solid #ccc; border-radius:4px; }
-    button { display:inline-block; padding:0.5rem 0.9rem; border-radius:6px; text-decoration:none; text-align:center; background:var(--accent); color:white; border:none; cursor:pointer; transition:background 0.3s; }
-    button:hover { background:#245a8a; }
-    footer.site-footer { margin-top:2rem; padding:1rem 0; border-top:1px solid #eee; background:#fafafa; text-align:center; }
-    .small-note { font-size:0.9rem; color:#555; }
-  </style>
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-
 <body>
 
 <header class="site-header" role="banner">
   <div class="container">
     <h1 id="site-title">Futuro em Bits</h1>
+    <div class="tagline">Inclusão digital e educação tecnológica para jovens</div>
     <nav aria-label="Menu principal">
       <ul class="nav">
         <li><a href="../index.html">Início</a></li>
@@ -55,16 +28,16 @@
 </header>
 
 <main class="container" role="main">
-  <h1>Sobre a organização</h1>
+  <h2>Sobre a organização</h2>
 
   <section id="missao-visao-valores">
-    <h2>Missão</h2>
+    <h3>Missão</h3>
     <p>Promover inclusão digital e educação tecnológica para jovens de periferia, ensinando programação, robótica e empreendedorismo.</p>
 
-    <h2>Visão</h2>
+    <h3>Visão</h3>
     <p>Ser referência nacional em formação tecnológica para jovens, criando oportunidades de futuro por meio da inovação.</p>
 
-    <h2>Valores</h2>
+    <h3>Valores</h3>
     <ul>
       <li>Inovação e criatividade</li>
       <li>Empoderamento jovem</li>
@@ -74,12 +47,12 @@
   </section>
 
   <section>
-    <h2>Nossa história</h2>
+    <h3>Nossa história</h3>
     <p>Breve histórico e conquistas.</p>
   </section>
 
   <section>
-    <h2>Equipe</h2>
+    <h3>Equipe</h3>
     <p>Apresentação da equipe e cargos.</p>
   </section>
 </main>
@@ -90,7 +63,7 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/script.js"></script>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
