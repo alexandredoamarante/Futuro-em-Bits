@@ -1,0 +1,81 @@
+<header class="site-header" role="banner">
+  <div class="container">
+    <h1 id="site-title">Futuro em Bits</h1>
+    <nav aria-label="Menu principal">
+      <ul class="nav">
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Como doar</h1>
+  <p>Ajude a transformar vidas! Escolha uma das formas de doação abaixo para contribuir com os projetos da Futuro em Bits.</p>
+
+  <section>
+    <h2>Campanha atual</h2>
+    <p><strong>Meta:</strong> R$ 10.000 — <strong>Progresso:</strong> R$ 4.200</p>
+    <div role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" style="width:42%; background:#4CAF50; color:#fff; text-align:center; padding:5px 0;">42%</div>
+  </section>
+
+  <section>
+    <h2>Formas de doação</h2>
+    <ul>
+      <li>Pix: <strong>pix@futuroembits.org</strong></li>
+      <li>Boleto bancário: disponível mediante solicitação</li>
+      <li>Cartão de crédito: via formulário abaixo</li>
+      <li>Doações recorrentes: apoio mensal via débito automático</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Doação online</h2>
+    <form id="form-doacao" novalidate>
+      <fieldset>
+        <legend>Formulário de Doação</legend>
+
+        <label for="nome-doa">Nome completo</label>
+        <input id="nome-doa" name="nome-doa" type="text" required>
+
+        <label for="email-doa">E-mail</label>
+        <input id="email-doa" name="email-doa" type="email" required>
+
+        <label for="valor-doa">Valor da doação (R$)</label>
+        <input id="valor-doa" name="valor-doa" type="number" min="1" required>
+
+        <label for="forma-pagamento">Forma de pagamento</label>
+        <select id="forma-pagamento" name="forma-pagamento" required>
+          <option value="">-- escolha --</option>
+          <option value="pix">Pix</option>
+          <option value="boleto">Boleto</option>
+          <option value="cartao">Cartão de crédito</option>
+        </select>
+
+      </fieldset>
+      <button type="submit">Contribuir</button>
+    </form>
+
+    <script>
+      document.getElementById('form-doacao')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Doação simulada enviada! Em um sistema real, o pagamento seria processado.');
+        e.target.reset();
+      });
+    </script>
+  </section>
+</main>
+
+<footer role="contentinfo" class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>

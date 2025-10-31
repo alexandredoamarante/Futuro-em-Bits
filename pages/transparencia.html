@@ -1,0 +1,109 @@
+<header class="site-header" role="banner">
+  <div class="container">
+    <h1 id="site-title">Futuro em Bits</h1>
+    <nav aria-label="Menu principal">
+      <ul class="nav">
+        <li><a href="../index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="voluntariado.html">Voluntariado</a></li>
+        <li><a href="doacoes.html">Como doar</a></li>
+        <li><a href="transparencia.html">Transparência</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Transparência</h1>
+  <p>Relatórios, aplicação de recursos e gráficos sobre nossas ações e impacto social.</p>
+
+  <section>
+    <h2>Distribuição de recursos</h2>
+    <p>Gráfico de pizza mostrando como os recursos da ONG foram distribuídos entre Educação, Saúde, Alimentação e Infraestrutura.</p>
+    <canvas id="chart-resources" width="400" height="200" aria-label="Distribuição de recursos" role="img"></canvas>
+  </section>
+
+  <section>
+    <h2>Evolução de voluntários</h2>
+    <p>Gráfico de linha ilustrando o crescimento do número de voluntários ao longo de seis meses.</p>
+    <canvas id="chart-volunteers" width="400" height="200" aria-label="Evolução de voluntários" role="img"></canvas>
+  </section>
+
+  <section>
+    <h2>Impacto por região</h2>
+    <p>Gráfico de barras mostrando o número de beneficiados em cada região do país.</p>
+    <canvas id="chart-impact" width="400" height="200" aria-label="Impacto por região" role="img"></canvas>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Distribuição de recursos - Gráfico de pizza
+    const ctx1 = document.getElementById('chart-resources').getContext('2d');
+    new Chart(ctx1, {
+      type: 'pie',
+      data: {
+        labels: ['Educação','Saúde','Alimentação','Infraestrutura'],
+        datasets: [{
+          data: [35,25,20,20],
+          backgroundColor: ['#4CAF50','#2196F3','#FF9800','#9C27B0']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
+    // Evolução de voluntários - Gráfico de linha
+    const ctx2 = document.getElementById('chart-volunteers').getContext('2d');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['Jan','Fev','Mar','Abr','Mai','Jun'],
+        datasets: [{
+          label: 'Voluntários',
+          data: [10,15,20,25,30,40],
+          fill: false,
+          borderColor: '#4CAF50',
+          tension: 0.2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
+    // Impacto por região - Gráfico de barras
+    const ctx3 = document.getElementById('chart-impact').getContext('2d');
+    new Chart(ctx3, {
+      type: 'bar',
+      data: {
+        labels: ['Norte','Nordeste','Sul','Sudeste','Centro-Oeste'],
+        datasets: [{
+          label: 'Beneficiados',
+          data: [120,90,60,200,50],
+          backgroundColor: '#2196F3'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Atualiza ano do footer automaticamente
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</main>
+
+<footer role="contentinfo" class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Futuro em Bits — Todos os direitos reservados.</p>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
