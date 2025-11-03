@@ -1,54 +1,51 @@
+<!doctype html>
+<html lang=pt-BR>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Doações - Futuro em Bits</title>
+<link rel=stylesheet href=../css/doacoes.css>
+</head>
+<body>
+<main class=container>
 <h2>Como doar</h2>
 <p>Ajude a transformar vidas! Escolha uma das formas de doação abaixo para contribuir com os projetos da Futuro em Bits.</p>
-
 <section>
-  <h3>Campanha atual</h3>
-  <p><strong>Meta:</strong> R$ 10.000 — <strong>Progresso:</strong> R$ 4.200</p>
-  <div class="progress-bar" style="width:42%; background:#4CAF50;">42%</div>
+<h3>Campanha atual</h3>
+<p><strong>Meta:</strong> R$ 10.000 — <strong>Progresso:</strong> R$ 4.200</p>
+<div class=progress-bar>42%</div>
 </section>
-
 <section>
-  <h3>Formas de doação</h3>
-  <ul>
-    <li>Pix: <strong>pix@futuroembits.org</strong></li>
-    <li>Boleto bancário: disponível mediante solicitação</li>
-    <li>Cartão de crédito: via formulário abaixo</li>
-    <li>Doações recorrentes: apoio mensal via débito automático</li>
-  </ul>
+<h3>Formas de doação</h3>
+<ul>
+<li>Pix: <strong>pix@futuroembits.org</strong></li>
+<li>Boleto bancário: disponível mediante solicitação</li>
+<li>Cartão de crédito: via formulário abaixo</li>
+<li>Doações recorrentes: apoio mensal via débito automático</li>
+</ul>
 </section>
-
 <section>
-  <h3>Doação online</h3>
-  <form id="form-doacao" novalidate>
-    <fieldset>
-
-
-      <label for="nome-doa">Nome completo</label>
-      <input id="nome-doa" name="nome-doa" type="text" required>
-
-      <label for="email-doa">E-mail</label>
-      <input id="email-doa" name="email-doa" type="email" required>
-
-      <label for="valor-doa">Valor da doação (R$)</label>
-      <input id="valor-doa" name="valor-doa" type="number" min="1" required>
-
-      <label for="forma-pagamento">Forma de pagamento</label>
-      <select id="forma-pagamento" name="forma-pagamento" required>
-        <option value="">-- escolha --</option>
-        <option value="pix">Pix</option>
-        <option value="boleto">Boleto</option>
-        <option value="cartao">Cartão de crédito</option>
-      </select>
-    </fieldset>
-
-    <button type="submit" class="btn">Contribuir</button>
-  </form>
-
-  <script>
-    document.getElementById('form-doacao')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Doação simulada enviada! Em um sistema real, o pagamento seria processado.');
-      e.target.reset();
-    });
-  </script>
+<h3>Doação online</h3>
+<form id=form-doacao novalidate>
+<fieldset>
+<label for=nome-doa>Nome completo</label>
+<input id=nome-doa name=nome-doa required>
+<label for=email-doa>E-mail</label>
+<input id=email-doa name=email-doa type=email required>
+<label for=valor-doa>Valor da doação (R$)</label>
+<input id=valor-doa name=valor-doa type=number min=1 required>
+<label for=forma-pagamento>Forma de pagamento</label>
+<select id=forma-pagamento name=forma-pagamento required>
+<option value="">-- escolha --</option>
+<option value=pix>Pix</option>
+<option value=boleto>Boleto</option>
+<option value=cartao>Cartão de crédito</option>
+</select>
+</fieldset>
+<button type=submit class=btn>Contribuir</button>
+</form>
+<script>document.getElementById("form-doacao")?.addEventListener("submit",(e=>{e.preventDefault(),alert("Doação simulada enviada! Em um sistema real, o pagamento seria processado."),e.target.reset()}))</script>
 </section>
+</main>
+</body>
+</html>

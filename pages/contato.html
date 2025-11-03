@@ -1,37 +1,35 @@
+<!doctype html>
+<html lang=pt-BR>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Contato Institucional</title>
+<link rel=stylesheet href=../css/contato.css>
+</head>
+<body>
+<main class=container>
 <h2>Contato institucional</h2>
-
-<form id="form-contato" novalidate enctype="multipart/form-data">
-  <fieldset>
-
-
-    <label for="assunto">Assunto</label>
-    <select id="assunto" name="assunto" required>
-      <option value="">-- escolha --</option>
-      <option value="parceria">Parceria</option>
-      <option value="duvida">Dúvida</option>
-      <option value="imprensa">Imprensa</option>
-    </select>
-
-    <label for="nomec">Nome</label>
-    <input id="nomec" name="nomec" type="text" required>
-
-    <label for="emailc">E-mail</label>
-    <input id="emailc" name="emailc" type="email" required>
-
-    <label for="mensagem">Mensagem</label>
-    <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
-
-    <label for="anexo">Anexos (opcional)</label>
-    <input id="anexo" name="anexo" type="file" accept=".pdf,.doc,.docx,.png,.jpg">
-  </fieldset>
-
-  <button type="submit" class="btn">Enviar mensagem</button>
+<form id=form-contato novalidate enctype=multipart/form-data>
+<fieldset>
+<label for=assunto>Assunto</label>
+<select id=assunto name=assunto required>
+<option value="">-- escolha --</option>
+<option value=parceria>Parceria</option>
+<option value=duvida>Dúvida</option>
+<option value=imprensa>Imprensa</option>
+</select>
+<label for=nomec>Nome</label>
+<input id=nomec name=nomec required>
+<label for=emailc>E-mail</label>
+<input id=emailc name=emailc type=email required>
+<label for=mensagem>Mensagem</label>
+<textarea id=mensagem name=mensagem rows=6 required></textarea>
+<label for=anexo>Anexos (opcional)</label>
+<input id=anexo name=anexo type=file accept=.pdf,.doc,.docx,.png,.jpg>
+</fieldset>
+<button type=submit class=btn>Enviar mensagem</button>
 </form>
-
-<script>
-  document.getElementById('form-contato')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Mensagem simulada enviada! Em um sistema real o backend receberia o formulário.');
-    e.target.reset();
-  });
-</script>
+</main>
+<script>document.getElementById("form-contato")?.addEventListener("submit",(e=>{e.preventDefault(),alert("Mensagem simulada enviada! Em um sistema real o backend receberia o formulário."),e.target.reset()}))</script>
+</body>
+</html>
